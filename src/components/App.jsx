@@ -34,9 +34,10 @@ class App extends Component {
     }
 
     createSong=(newSong)=>{
-        this.songs.push(newSong)
+        let allSongs = this.state.songs
+        allSongs.push(newSong)
         this.setState({
-            songNumber:this.songs.length - 1
+            songs: allSongs
         })
     }
 

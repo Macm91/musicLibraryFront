@@ -25,7 +25,6 @@ class CreateForm extends Component{
 
 
    render() { 
-       debugger
        return ( 
            <form onSubmit= {this.handleSubmit}>
                <label>Song Title</label>
@@ -37,7 +36,7 @@ class CreateForm extends Component{
                <label>Genre</label>
                <input name="genre" onChange={this.handleChange} value={this.state.genre}/>
                <label>Release Date</label>
-               <input name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
+               <input type="datetime-local" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
                <button type="submit">Create Song</button>
            </form>
         );
