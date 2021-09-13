@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './App.css'
+import Table from "./Table/Table";
 
 
 class App extends Component {
@@ -16,19 +17,26 @@ class App extends Component {
 
 
     async getSongs (){
-        let response = await axios.get('http://127.0.0.1:8000/music/');
-        this.setState({
+        try{
+            let response = await axios.get('http://127.0.0.1:8000/music/');
+            this.setState({
             songs: response.data
-        })
+            });
         console.log (response);
     }
+        catch(ex) {
+            console.log ('Error in API Call!')
+        }
+
+   
+    }
+
 
 
     render (){
         return(
             <div className="container-fluid">
-               <h1>Hello World!</h1>
-               <p></p>
+               <Table song={this.state.songs}/>
             </div>
         )
     }
