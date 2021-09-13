@@ -19,7 +19,6 @@ class CreateForm extends Component{
    }
 
    handleSubmit = (event) => {
-       event.preventDefault();
        this.props.createSong(this.state);
    }
 

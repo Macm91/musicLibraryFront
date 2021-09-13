@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import './App.css'
 import Table from "./Table/Table";
-import CreateForm from "./CreateForm/CreateForm";
+
 
 
 class App extends Component {
@@ -10,7 +10,6 @@ class App extends Component {
         super(props);
         this.state ={
             songs: [],
-            songNumber: 0
         }
     }
     componentDidMount(){
@@ -22,30 +21,20 @@ class App extends Component {
         try{
             let response = await axios.get('http://127.0.0.1:8000/music/');
             this.setState({
-            songs: response.data
+                songs: response.data
             });
-        console.log (response);
     }
         catch(ex) {
             console.log ('Error in API Call!')
         }
-
-   
     }
 
-    createSong=(newSong)=>{
-        let allSongs = this.state.songs
-        allSongs.push(newSong)
-        this.setState({
-            songs: allSongs
-        })
-    }
+    
 
     render (){
         return(
             <div className="container-fluid">
-               <Table song={this.state.songs}/>
-               <CreateForm createSong={this.createSong}/>
+               <Table songs={this.state.songs}/>
             </div>
         )
     }
