@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import './App.css'
 import Table from "./Table/Table";
+import CreateForm from "./CreateForm/CreateForm";
 
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
         super(props);
         this.state ={
             songs: [],
+            songNumber: 0
         }
     }
     componentDidMount(){
@@ -31,12 +33,18 @@ class App extends Component {
    
     }
 
-
+    createSong=(newSong)=>{
+        this.songs.push(newSong)
+        this.setState({
+            songNumber:this.songs.length - 1
+        })
+    }
 
     render (){
         return(
             <div className="container-fluid">
                <Table song={this.state.songs}/>
+               <CreateForm createSong={this.createSong}/>
             </div>
         )
     }
