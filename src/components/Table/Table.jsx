@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import './Table.css';
 import axios from "axios";
 import CreateForm from "../CreateForm/CreateForm"
-import Filter from "../Filter/Filter";
+
 
 
 
@@ -23,6 +23,7 @@ class Table extends Component {
                 songs: response.data
             })
     }
+
     createSong=(newSong)=>{axios.post('http://127.0.0.1:8000/music/', newSong)}
     
     deleteSong=(songID)=>{
@@ -35,10 +36,22 @@ class Table extends Component {
         this.getSongs()
     }
 
+    // TO DO: Create modal to implement the edit song function.
+
+
+
     filterSongs =() =>{ 
-        debugger
-        let filteredSongs = this.songs.toLowerCase.filter(this.state.search.toLowerCase.includes(this.state.songs.name.toLowerCase || this.state.song.album.toLowerCase || this.state.songs.artist.toLowerCase || this.state.songs.release_date.toLowerCase || this.state.songs.genre.toLowerCase))
-        
+        let filteredSongs = this.songs.filter((song) => {
+            if (this.state.search === ""){
+                return true;
+            }
+            else if (this.songs.title.toLowerCase().includes(this.state.search) || this.songs.artist.toLowerCase.includes(this.state.search) || this.songs.album.toLowerCase.includes(this.state.search) || this.songs.genre.toLowerCase.includes(this.state.search) || this.songs.release_date.toLowerCase.includes(this.state.search)){
+                return true
+            }
+            else{
+                return false
+            }
+                })
         this.setState({
             songs : filteredSongs
         })
@@ -48,7 +61,7 @@ class Table extends Component {
     render(){
     return(
         <div className="Table">
-            <Filter  id="searchbar"/>
+
             <table>
                 <thead>
                 <tr className="table">

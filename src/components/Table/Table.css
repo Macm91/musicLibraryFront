@@ -1,10 +1,11 @@
-.Table{
+.return{
     width: 100%;
     background-color: rgb(28, 28, 28);
     text-align: justify;
     color:rgb(170, 169, 169); 
     margin-left: auto;
     margin-right: auto;
+    justify-content: center;
  
 }
 
