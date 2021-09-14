@@ -1,0 +1,10 @@
+.create{
+    padding: 10%;
+    margin: 10%;
+    background-color: rgb(97, 97, 97);
+}
+
+form input{
+    background-color: darkgray;
+}
+

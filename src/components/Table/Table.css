@@ -1,0 +1,30 @@
+.Table{
+    width: 100%;
+    background-color: rgb(28, 28, 28);
+    text-align: justify;
+    color:rgb(170, 169, 169); 
+    margin-left: auto;
+    margin-right: auto;
+ 
+}
+
+.songdetails th{
+    padding-right: 8%;
+    padding-bottom: 5%;
+}
+
+.table{
+    background-color:darkslategrey;
+}
+
+.table th{
+    color:rgb(250, 249, 249);
+    
+}
+
+.searchbar {
+    margin:3%;
+    padding:3%;
+    position: sticky;
+    
+}

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import './Table.css';
 import axios from "axios";
 import CreateForm from "../CreateForm/CreateForm"
+import Filter from "../Filter/Filter";
 
 
 
@@ -29,10 +30,25 @@ class Table extends Component {
         this.getSongs()
     }
 
+    editSong=(song) => {
+        axios.put('http://127.0.0.1:8000/music/'+song.id+'/')
+        this.getSongs()
+    }
+
+    filterSongs =() =>{ 
+        debugger
+        let filteredSongs = this.songs.toLowerCase.filter(this.state.search.toLowerCase.includes(this.state.songs.name.toLowerCase || this.state.song.album.toLowerCase || this.state.songs.artist.toLowerCase || this.state.songs.release_date.toLowerCase || this.state.songs.genre.toLowerCase))
+        
+        this.setState({
+            songs : filteredSongs
+        })
+    }
+
 
     render(){
     return(
-        <React.Fragment>
+        <div className="Table">
+            <Filter  id="searchbar"/>
             <table>
                 <thead>
                 <tr className="table">
@@ -62,9 +78,9 @@ class Table extends Component {
                 </tbody>
                 </table>
             
-           <CreateForm createSong={this.createSong}/>
+           <CreateForm createSong={this.createSong} id="create"/>
                   
-        </React.Fragment>
+        </div>
     )}
 }
 

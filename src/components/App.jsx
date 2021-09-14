@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import './App.css'
 import Table from "./Table/Table";
+import Header from "./Header/Header";
 
 
 
@@ -34,7 +35,9 @@ class App extends Component {
     render (){
         return(
             <div className="container-fluid">
+               <Header/>
                <Table songs={this.state.songs}/>
+
             </div>
         )
     }

@@ -1,34 +1,23 @@
 import React, { Component } from "react";
-import './CreateForm.css'
 
-class CreateForm extends Component{
-    constructor (props){
-        super(props);
-        this.state = {
-            title: "",
-            artist:"",
-            album: "",
-            genre: "",
-            release_date: "",
-        }
-    }
+handleChange= (event) => {
+    this.setState ({
+        [event.target.name]: event.target.value,
+    });
+}
 
-    handleChange= (event) => {
-        this.setState ({
-            [event.target.name]: event.target.value,
-        });
-   }
-
-   handleSubmit = (event) => {
-       this.props.createSong(this.state);
-   }
+handleSubmit = (event) => {
+   this.props.editSong(this.state);
+}
 
 
-   render() { 
+EditSong = (songEdit)=>{
+     
        return ( 
            <form onSubmit= {this.handleSubmit}>
                <label>Song Title</label>
-               <input name="title" onChange={this.handleChange} value={this.state.title}/>
+               <input name="title" onChange={this.handleChange} value={this.state.title}>
+                  {} </input>
                <label>Artist</label>
                <input name="artist" onChange={this.handleChange} value={this.state.artist}/>
                <label>Album</label>
@@ -37,10 +26,10 @@ class CreateForm extends Component{
                <input name="genre" onChange={this.handleChange} value={this.state.genre}/>
                <label>Release Date</label>
                <input type="datetime-local" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
-               <button type="submit">Create Song</button>
+               <button type="submit">Edit Song</button>
            </form>
         );
    }
 }
 
-export default CreateForm;
+export default EditSong;
