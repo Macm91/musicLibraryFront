@@ -43,10 +43,7 @@ class App extends Component {
         this.getSongs()
     }
 
-    editSong = (song) => {
-        axios.put('http://127.0.0.1:8000/music/'+song.id+'/')
-        this.getSongs()
-    }
+   
 
     handleChange= (event) => {
          this.setState ({

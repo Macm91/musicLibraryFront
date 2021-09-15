@@ -2,6 +2,7 @@ import React from "react";
 import './Table.css';
 import EditSong from "../EditSong/EditSong";
 import { useState } from "react";
+import axios from "axios";
 
 
 
@@ -10,7 +11,9 @@ import { useState } from "react";
 const Table = (props) =>{
     const [searchTerm, setSearchTerm] = useState('')
 
-
+const editSong = (song) => {
+        axios.put('http://127.0.0.1:8000/music/'+song.id+'/')
+    }
 
     return(
         <div className="Table">
@@ -45,7 +48,7 @@ const Table = (props) =>{
                     <th> {val.artist}</th>
                     <th> {val.genre}</th>
                     <th> {val.release_date}</th>
-                    <th> <EditSong/> </th>
+                    <th> <EditSong editSong={editSong(val)} /> </th>
                     <th><button className="delete" onClick={()=> props.deleteSong(val)} > Delete</button></th>
                     </tr>
                     )
