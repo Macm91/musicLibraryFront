@@ -1,6 +1,6 @@
 import React from "react";
 import './Table.css';
-import EditSongForm from "../EditSong/EditSongsForm";
+import EditSong from "../EditSong/EditSong";
 import { useState } from "react";
 
 
@@ -45,7 +45,7 @@ const Table = (props) =>{
                     <th> {val.artist}</th>
                     <th> {val.genre}</th>
                     <th> {val.release_date}</th>
-                    <th><button onClick={()=> EditSongForm} > Edit</button></th>
+                    <th> <EditSong/> </th>
                     <th><button className="delete" onClick={()=> props.deleteSong(val)} > Delete</button></th>
                     </tr>
                     )

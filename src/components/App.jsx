@@ -43,18 +43,16 @@ class App extends Component {
         this.getSongs()
     }
 
-
-
-    // handleSubmitEdit = (event) => {
-    //     this.props.createSong(this.state);
-    //    }
+    editSong = (song) => {
+        axios.put('http://127.0.0.1:8000/music/'+song.id+'/')
+        this.getSongs()
+    }
 
     handleChange= (event) => {
          this.setState ({
         [event.target.name]: event.target.value,
     });
     }
-
 
 
 
