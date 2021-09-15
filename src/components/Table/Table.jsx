@@ -31,7 +31,7 @@ const Table = (props) =>{
                     if(searchTerm === ""){
                         return true
                     }
-                    else if (val.title.toLowerCase().includes(searchTerm.toLowerCase())){
+                    else if (val.title.toLowerCase().includes(searchTerm.toLowerCase()) || val.artist.toLowerCase().includes(searchTerm.toLowerCase()) || val.album.toLowerCase().includes(searchTerm.toLowerCase()) || val.album.toLowerCase().includes(searchTerm.toLowerCase())){
                         return true
                     }
                     else{

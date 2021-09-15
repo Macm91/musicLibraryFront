@@ -26,6 +26,7 @@ class CreateForm extends Component{
 
    render() { 
        return ( 
+           <footer>
            <form onSubmit= {this.handleSubmit}>
                <label>Song Title</label>
                <input name="title" onChange={this.handleChange} value={this.state.title}/>
@@ -39,6 +40,7 @@ class CreateForm extends Component{
                <input type="datetime-local" name="release_date" onChange={this.handleChange} value={this.state.release_date}/>
                <button type="submit">Create Song</button>
            </form>
+           </footer>
         );
    }
 }
